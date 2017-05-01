@@ -10,7 +10,7 @@ public class FileStorage implements IDataStorage {
     private String path;
 
     public FileStorage() {
-        this(System.getProperty("user.dir")+"/src/model/storage/data.txt");
+        this(System.getProperty("user.dir")+"/src/main/java/dk/dtu/model/storage/data.txt");
     }
 
     public FileStorage(String path) {
