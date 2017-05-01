@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 
 import dk.dtu.model.IDAL;
 import dk.dtu.model.IDAL.DALException;
-import dk.dtu.model.PersistentUserDAO;
+import dk.dtu.model.PersistentOperatorDAO;
 import dk.dtu.model.DTO.OperatorDTO;
 import dk.dtu.model.storage.FileStorage;
 
@@ -24,7 +24,7 @@ import dk.dtu.model.storage.FileStorage;
 @Produces(MediaType.APPLICATION_JSON)
 public class OperatorService {
 	
-	private IDAL dao = new PersistentUserDAO(new FileStorage());
+	private IDAL dao = new PersistentOperatorDAO(new FileStorage());
 
 	@GET
 	@Path("/{id}")
