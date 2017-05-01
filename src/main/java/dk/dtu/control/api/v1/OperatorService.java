@@ -15,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 import dk.dtu.model.IDAL;
 import dk.dtu.model.IDAL.DALException;
 import dk.dtu.model.PersistentOperatorDAO;
+import dk.dtu.model.Validation;
 import dk.dtu.model.DTO.OperatorDTO;
 import dk.dtu.model.storage.FileStorage;
 
@@ -28,12 +29,15 @@ public class OperatorService {
 
 	@GET
 	@Path("/{id}")
-	public OperatorDTO getOperator(@PathParam("id") int oprID) throws DALException {
-		return dao.getOperator(oprID);
+	public OperatorDTO getOperator(@PathParam("id") String oprID) throws DALException {
+		if (Validation.isPositiveInteger(oprID)) {
+			return dao.getOperator(Integer.parseInt(oprID));
+		} else {
+			return null;
+		}
 	}
 	
 	@GET
-	@Path("")
 	public List<OperatorDTO> getOperatorList() throws DALException {
 		return dao.getOperatorList();
 	}
@@ -50,7 +54,11 @@ public class OperatorService {
 	
 	@DELETE
 	@Path("/{id}")
-	public boolean deleteOperator(@PathParam("id") int oprID) throws DALException {
-		return dao.deleteOperator(oprID);
+	public boolean deleteOperator(@PathParam("id") String oprID) throws DALException {
+		if (Validation.isPositiveInteger(oprID)) {
+			return dao.deleteOperator(Integer.parseInt(oprID));
+		} else {
+			return false;
+		}
 	}
 }
