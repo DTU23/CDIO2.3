@@ -6,29 +6,19 @@ import java.util.ArrayList;
 
 public interface IDAL {
 
-	OperatorDTO getUser(int userId);
+	OperatorDTO getOperator(int userId) throws DALException;
 
-	ArrayList<OperatorDTO> getUserList() throws DALException;
-	
-	boolean isUserListEmpty();
+	ArrayList<OperatorDTO> getOperatorList() throws DALException;
 
-	void createUser(OperatorDTO user) throws DALException;
+	boolean createOperator(OperatorDTO user) throws DALException;
 
-	void updateUser(OperatorDTO user) throws DALException;
+	boolean updateOperator(OperatorDTO user) throws DALException;
 
-	void deleteUser(int userId) throws DALException;
-
-	boolean userExists(int userId);
-	
-	void init() throws DALException;
+	boolean deleteOperator(int userId) throws DALException;
     
 	class DALException extends Exception {
   		
   		private static final long serialVersionUID = 7355418246336739229L;
-
-  		public DALException(String msg, Throwable e) {
-  			super(msg,e);
-  		}
 
   		public DALException(String msg) {
   			super(msg);
