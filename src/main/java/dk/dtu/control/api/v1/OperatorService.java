@@ -19,7 +19,7 @@ import dk.dtu.model.Validation;
 import dk.dtu.model.DTO.OperatorDTO;
 
 
-@Path("/v1/operator")
+@Path("v1/operator")
 public class OperatorService {
 	
 	private IDAL dao = new OperatorDAO();
