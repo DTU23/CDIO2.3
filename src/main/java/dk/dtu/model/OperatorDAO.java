@@ -1,15 +1,17 @@
 package dk.dtu.model;
 
-import dk.dtu.model.DTO.OperatorDTO;
-
 import java.util.ArrayList;
+
+import dk.dtu.model.DTO.OperatorDTO;
 
 public class OperatorDAO implements IDAL{
 
-	private ArrayList<OperatorDTO> operatorList;
-
-	public OperatorDAO() {
-		operatorList = new ArrayList<>();
+	private static ArrayList<OperatorDTO> operatorList = new ArrayList<OperatorDTO>();
+	static {
+		operatorList.add(new OperatorDTO(1, "Viktor Poulsen", "VP", "1234567890", "test", true, "operator"));
+		operatorList.add(new OperatorDTO(2, "Frederik", "FV", "1234567890", "test", false, "foreman"));
+		operatorList.add(new OperatorDTO(3, "Christian Niemann", "CN", "1234567890", "test", true, "pharmacist"));
+		operatorList.add(new OperatorDTO(4, "Mads Pedersen", "MP", "1234567890", "test", false, "operator"));
 	}
 
 	@Override
